@@ -8,3 +8,10 @@ class RequestLog(models.Model):
 
     def __str__(self):
         return f"{self.ip_address} at {self.timestamp} -> {self.path}"
+    
+class BlockedIP(models.Model):
+    ip_address = models.GenericIPAddressField(unique=True)
+    added_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.ip_address
