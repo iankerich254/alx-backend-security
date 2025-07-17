@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from ratelimit.decorators import ratelimit
+from django_ratelimit.decorators import ratelimit
 
 # Anonymous: 5 req/min, Authenticated: 10 req/min
 @ratelimit(key='ip', rate='10/m', method='GET', block=True)
